@@ -33,21 +33,16 @@ const RightSidebar = () => {
             <h1 className="text-16 truncate font-semibold text-white-1">
               {user?.firstName} {user?.lastName}
             </h1>
-            <Image
-              src="/icons/right-arrow.svg"
-              alt="arrow"
-              width={24}
-              height={24}
-            />
           </div>
         </Link>
       </SignedIn>
       <section>
         <Header headerTitle="Fans Like You" />
+        <br></br>
         <Carousel fansLikeDetail={topPodcasters!} />
       </section>
       <section className="flex flex-col gap-8 pt-12">
-        <Header headerTitle="Top Podcastrs" />
+        <Header headerTitle="Top Creators" />
         <div className="flex flex-col gap-6">
           {topPodcasters?.slice(0, 3).map((podcaster) => (
             <div

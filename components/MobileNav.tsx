@@ -34,7 +34,7 @@ const MobileNav = () => {
           >
             <Image src="/icons/logo.svg" alt="logo" width={23} height={27} />
             <h1 className="text-24 font-extrabold  text-white-1 ml-2">
-              Podcastr
+              PodQuill
             </h1>
           </Link>
           <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
@@ -51,7 +51,7 @@ const MobileNav = () => {
                         className={cn(
                           "flex gap-3 items-center py-4 max-lg:px-4 justify-start",
                           {
-                            "bg-nav-focus border-r-4 border-orange-1": isActive,
+                            "bg-nav-focus border-r-4 border-teal-1": isActive,
                           }
                         )}
                       >
