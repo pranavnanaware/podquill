@@ -11,10 +11,6 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "sensible-toad-313.convex.cloud",
-      },
-      {
-        protocol: "https",
         hostname: "lovely-flamingo-139.convex.cloud",
       },
       {
