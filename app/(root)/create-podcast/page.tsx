@@ -102,10 +102,6 @@ const CreatePodcast = () => {
       router.push("/");
     } catch (error) {
       console.log(error);
-      toast({
-        title: "Error",
-        variant: "destructive",
-      });
       setIsSubmitting(false);
     }
   }
@@ -131,7 +127,7 @@ const CreatePodcast = () => {
                   <FormControl>
                     <Input
                       className="input-class focus-visible:ring-offset-teal-1"
-                      placeholder="Podcast Title Goes Here"
+                      placeholder="JSM Pro Podcast"
                       {...field}
                     />
                   </FormControl>
@@ -142,7 +138,7 @@ const CreatePodcast = () => {
 
             <div className="flex flex-col gap-2.5">
               <Label className="text-16 font-bold text-white-1">
-                Select Voice
+                Select AI Voice
               </Label>
 
               <Select onValueChange={(value) => setVoiceType(value)}>

@@ -33,26 +33,31 @@ const useGeneratePodcast = ({
 
     if (!voicePrompt) {
       toast({
-        title: "Please provide a voiceType to generate a podcast",
+        title: "Please provide a voice prompt to generate a podcast",
       });
-      return setIsGenerating(false);
+      setIsGenerating(false);
+      return;
     }
 
     try {
+      console.log("Generating podcast audio...");
       const response = await getPodcastAudio({
         voice: voiceType,
         input: voicePrompt,
       });
 
+      console.log("Audio generated, creating blob...");
       const blob = new Blob([response], { type: "audio/mpeg" });
       const fileName = `podcast-${uuidv4()}.mp3`;
       const file = new File([blob], fileName, { type: "audio/mpeg" });
 
+      console.log("Uploading file...");
       const uploaded = await startUpload([file]);
       const storageId = (uploaded[0].response as any).storageId;
 
       setAudioStorageId(storageId);
 
+      console.log("Fetching audio URL...");
       const audioUrl = await getAudioUrl({ storageId });
       setAudio(audioUrl!);
       setIsGenerating(false);
@@ -78,7 +83,9 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
   return (
     <div>
       <div className="flex flex-col gap-2.5">
-        <Label className="text-16 font-bold text-white-1">Podcast</Label>
+        <Label className="text-16 font-bold text-white-1">
+          AI Prompt to generate Podcast
+        </Label>
         <Textarea
           className="input-class font-light focus-visible:ring-offset-teal-1"
           placeholder="Provide text to generate audio"
